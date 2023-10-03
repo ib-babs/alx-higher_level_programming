@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-for letter in "abcdefghijklmnopqrstuvwxyz":
-    if ('q' in letter) or ('e' in letter):
+for x in range(ord('a'), ord('z') + 1):
+    if x == 113 or  x == 101:
         continue
-    print(f"{letter}", end="")
+    print("{:c}".format(x), end='')
