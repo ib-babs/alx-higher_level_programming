@@ -1,8 +1,3 @@
 #!/usr/bin/python3
-i = 0
-for letter in "abcdefghijklmnopqrstuvwxyz":
-    letter = 122 - ord(letter) + 97
-    if i % 2 == 1:
-        letter = letter - 32
-    print(f"{chr(letter)}", end="")
-    i += 1
+for x in range(ord('z'), ord('a') - 1, -1):
+    print("{:c}".format(x if x % 2 == 0 else x - 32), end='')
