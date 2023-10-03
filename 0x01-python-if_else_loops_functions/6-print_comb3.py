@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-for i in range(0, 9):
-    for j in range(1, 10):
-        if j < i or j == i:
-            continue
-        if j > 1:
-            print(", ", end='')
-        print(f"{i}{j}", end='')
-print()
+
+for a in range(0, 10):
+    for b in range(a + 1, 10):
+        if a == 8 and b == 9:
+            print("89")
+        elif a != b:
+            print("{:d}{:d}".format(a, b), end=', ')
