@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 def print_args(argv):
-    argv_len = len(argv)
+    n = len(argv) - 1
     i = 1
-    if argv_len == 1:
+    if n == 0:
         print("0 argument.")
-    elif argv_len == 2:
-        print("1 argument:\n1: {:s}".format(argv[1]))
+    elif n == 1:
+        print("{:d} argument:\n{:d}: {:s}".format(n, n, argv[1]))
     else:
-        print("{} arguments:".format(argv_len - 1))
+        print("{} arguments:".format(n))
         for arg in argv[1:]:
             print("{}: {:s}".format(i, arg))
             i = i + 1
