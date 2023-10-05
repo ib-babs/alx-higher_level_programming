@@ -5,6 +5,7 @@ def print_args(argv):
     i = 1
     if n == 0:
         print("0 argument.")
+        return
     elif n == 1:
         print("{:d} argument:".format(n))
         print("{:d}: {:s}".format(n, argv[1]))
