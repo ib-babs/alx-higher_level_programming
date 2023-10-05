@@ -6,11 +6,12 @@ def print_args(argv):
     if n == 0:
         print("0 argument.")
     elif n == 1:
-        print("{:d} argument:\n{:d}: {:s}".format(n, n, argv[1]))
+        print("{:d} argument:".format(n))
+        print("{:d}: {:s}".format(n, argv[1]))
     else:
-        print("{} arguments:".format(n))
+        print("{:d} arguments:".format(n))
         for arg in argv[1:]:
-            print("{}: {:s}".format(i, arg))
+            print("{:d}: {:s}".format(i, arg))
             i = i + 1
 
 
