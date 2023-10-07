@@ -9,7 +9,7 @@ int list_len(listint_t *h)
 	int idx;
 
 	if (h == NULL)
-		return (0);
+		return (-1);
 
 	for (idx = 0; h != NULL; ((h = h->next), idx++))
 		;
@@ -28,13 +28,12 @@ int is_palindrome(listint_t **head)
 	int len = list_len(*head);
 	int *arr = malloc(1 * len), idx, idy;
 
-	if (!head || *head == NULL || arr == NULL)
+	if (!head || ptr == NULL || arr == NULL)
 	{
 		free(arr);
 		return (-1);
 	}
-	if (len == 0)
-		return (1);
+	
 	for (idx = 0; ptr != NULL; ((ptr = ptr->next), idx++))
 		arr[idx] = ptr->n;
 
