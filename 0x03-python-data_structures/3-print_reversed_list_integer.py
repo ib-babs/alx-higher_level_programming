@@ -7,5 +7,5 @@ def print_reversed_list_integer(my_list=[]):
     if my_list is None:
         return
     while idx >= 0:
-        print("{:d}", my_list[idx])
+        print("{:d}".format(my_list[idx]))
         idx -= 1
