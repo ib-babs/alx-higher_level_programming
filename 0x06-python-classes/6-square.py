@@ -1,14 +1,9 @@
 #!/usr/bin/python3
 class Square:
-    """This is a class called 'Square'
-     Sqaure is a class that defines a square
-     """
+    """Define Sqaure class that defines a square"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """
-        Initializes class Square with two optional parameters: 'size set to 0'
-        And 'position' to (0, 0)
-        """
+        """Initializes class Square"""
         self.__size = size
         self.__position = position
         if type(size) is not int:
@@ -17,23 +12,17 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def area(self):
-        """
-        The 'area' method calculate the area of the square
-        """
+        """Define 'area' method calculate the area of the square"""
         return self.__size * self.__size
 
     @property
     def size(self):
-        """"
-        The getter method 'size' gets the private instance '__size'
-        """
+        """"The getter method 'size' gets the private instance '__size'"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """"
-        The setter method 'value' sets the private instance '__size'
-        """
+        """"The setter method 'value' sets the private instance '__size'"""
         self.__size = value
         if type(value) is not int:
             raise TypeError("size must be an integer")
@@ -41,10 +30,7 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def my_print(self):
-        """
-        The method 'my_print' prints to stdout
-        the square with character #
-        """
+        """The method 'my_print' prints to stdout the square with character #"""
         size = self.__size
         pos = self.__position
         if size == 0:
@@ -59,16 +45,12 @@ class Square:
 
     @property
     def position(self):
-        """"
-        The getter method 'position' gets the private instance '__position'
-        """
+        """"The getter method 'position' gets the private instance '__position' """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """"
-        The setter method 'value' sets the private instance '__position'
-        """
+        """"The setter method 'value' sets the private instance '__position'"""
         if value[0] or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:

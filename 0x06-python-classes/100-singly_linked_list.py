@@ -1,30 +1,20 @@
 #!/usr/bin/python3
 class Node:
-    """
-    This class 'Node' is a class that defines
-    a node of a singly linked list
-    """
+    """This class 'Node' is a class that defines a node of a singly linked list"""
 
     def __init__(self, data, next_node=None):
-        """
-       Initializes class Node with two optional parameters: 'data set to 0'
-       And 'next_node' to None
-       """
+        """Initializes class Node with two optional parameters: 'data set to 0' And 'next_node' to None"""
         self.__data = data
         self.__next_node = next_node
 
     @property
     def data(self):
-        """"
-        The getter method 'data' gets the private instance '__position'
-        """
+        """"The getter method 'data' gets  instance '__position'"""
         return self.__data
 
     @data.setter
     def data(self, value):
-        """"
-        The setter method 'value' sets the private instance '__position'
-        """
+        """"The setter method 'value' sets the private instance '__position'"""
         if type(value) is not int:
             raise TypeError("data must be an integer")
         else:
@@ -32,25 +22,19 @@ class Node:
 
     @property
     def next_node(self):
-        """"
-        The getter method 'data' gets the private instance '__position'
-        """
+        """"The getter method 'data' gets the private instance '__position'"""
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """"
-        The setter method 'value' sets the private instance '__position'
-        """
+        """"The setter method 'value' sets the private instance '__position'"""
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
 class SinglyLinkedList:
-    """
-    The class 'SinglyLinkedList' defines a singly linked list class
-    """
+    """The class 'SinglyLinkedList' defines a singly linked list class"""
 
     def __init__(self):
         self.head = None

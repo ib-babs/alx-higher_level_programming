@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 class Square:
-    """This is a class called 'Square'
-     Sqaure is a class that defines a square
-     """
+    """Define Sqaure class"""
 
     def __init__(self, size=0):
-        """
-        Initializes class Square with optional parameter 'size set to 0'
-        """
+        """Initializes class Square"""
         self.__size = size
         if type(size) is not int:
             raise TypeError("size must be an integer")
