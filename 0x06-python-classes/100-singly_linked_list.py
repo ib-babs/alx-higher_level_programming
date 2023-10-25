@@ -3,10 +3,13 @@
 
 
 class Node:
-    """This class 'Node' is a class that defines a node of a singly linked list"""
+    """This class 'Node' is a class that defines
+    a node of a singly linked list"""
 
     def __init__(self, data, next_node=None):
-        """Initializes class Node with two optional parameters: 'data set to 0' And 'next_node' to None"""
+        """Initializes class Node"""
+        if not isinstance(data, int):
+            raise TypeError("data must be an integer")
         self.__data = data
         self.__next_node = next_node
 
@@ -20,8 +23,7 @@ class Node:
         """"The setter method 'value' sets the private instance '__position'"""
         if type(value) is not int:
             raise TypeError("data must be an integer")
-        else:
-            self.__data = value
+        self.__data = value
 
     @property
     def next_node(self):
@@ -63,4 +65,4 @@ class SinglyLinkedList:
         while current:
             linked_list_str += str(current.data) + "\n"
             current = current.next_node
-        return linked_list_str
+        return linked_list_str[:-1]
