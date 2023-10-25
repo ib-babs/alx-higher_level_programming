@@ -48,7 +48,7 @@ class Square:
             print()
         else:
             for i in range(0, size):
-                print(pos[0] * " " + size * "#", end='')
+                print(pos[0] * " " + size * "#")
             print()
 
     @property
@@ -69,26 +69,3 @@ class Square:
         if len(value) < 2:
             raise TypeError(
                 "position must be a tuple of 2 positive integers")
-
-# try:
-#     my_square = Square(3, "Position")
-# except Exception as e:
-#     print(e)
-
-# try:
-#     my_square = Square(3, (2, -1))
-# except Exception as e:
-#     print(e)
-
-# try:
-#     my_square = Square(3, (1, -3))
-# except Exception as e:
-#     print(e)
-try:
-    my_square = Square(3, (1, "3"))
-except Exception as e:
-    print(e)
-my_square1 = Square(5, (3, 2))
-my_square2 = Square(3, (1, 1))
-my_square1.my_print()
-my_square2.my_print()
