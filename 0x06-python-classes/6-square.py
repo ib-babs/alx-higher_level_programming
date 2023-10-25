@@ -53,7 +53,6 @@ class Square:
                 else:
                     print(pos[0] * " ", end='')
                 print(size * "#")
-        print()
 
     @property
     def position(self):
