@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# 2-sqaure.py
+"""Defining the Square Class"""
+
+
 class Square:
     """Define Sqaure class"""
 
