@@ -48,12 +48,8 @@ class Square:
             print()
         else:
             for i in range(0, size):
-                # if pos[1] > 1:
-                #     pass
-                # else:
                 print(pos[0] * " ", end='')
                 print(size * "#")
-        print()
 
     @property
     def position(self):
