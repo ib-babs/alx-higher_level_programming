@@ -1,0 +1,101 @@
+>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul 
+>>> lazy_matrix_A = [[1, 2]]
+>>> lazy_matrix_B = [[1.3, 2], [3, 4]]
+>>> print(lazy_matrix_mul(lazy_matrix_A, lazy_matrix_B))
+[[ 7 10]]
+
+>>> print(lazy_matrix_mul([[1, 3], [4, 5]],
+...     [[1, 3], [4, 5]]
+...     ))
+[[13 18]
+ [24 37]]
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 3]],
+...     [[1, 3]]
+...     ))
+... except Exception as e:
+...     print(e)
+Multiplication of m_a with m_b is not possible
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 'a']],
+...     [[1, 3]]
+...     ))
+... except Exception as e:
+...     print(e)
+m_a must only contain either integers or floats
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 2]],
+...     [[1, 'a']]
+...     ))
+... except Exception as e:
+...     print(e)
+m_b must only contain either integers or floats
+
+>>> try:
+...     print(lazy_matrix_mul([[]], [[1]]))
+... except Exception as e:
+...     print(e)
+m_a mustn't be empty
+
+>>> try:
+...     print(lazy_matrix_mul([[2]], [[]]))
+... except Exception as e:
+...     print(e)
+m_b mustn't be empty
+
+>>> try:
+...     print(lazy_matrix_mul([[2, 2], [1, 2, 3]], [[1, 2], [2, 4]]))
+... except Exception as e:
+...     print(e)
+each row of m_a must not greater than other
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 2], [2, 4]], [[2, 2], [1, 2, 3]]))
+... except Exception as e:
+...     print(e)
+each row of m_b must not greater than other
+
+>>> try:
+...     print(lazy_matrix_mul())
+... except Exception as e:
+...     print(e)
+lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 2]]))
+... except Exception as e:
+...     print(e)
+lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+>>> try:
+...     print(lazy_matrix_mul(m_b=[[1, 2]]))
+... except Exception as e:
+...     print(e)
+lazy_matrix_mul() missing 1 required positional argument: 'm_a'
+
+>>> try:
+...     print(lazy_matrix_mul([1, 2], [[1]]))
+... except Exception as e:
+...     print(e)
+m_a have to be a list
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 2]], [1, 2]))
+... except Exception as e:
+...     print(e)
+m_b have to be a list
+
+>>> try:
+...     print(lazy_matrix_mul('main', [1, 2]))
+... except Exception as e:
+...     print(e)
+m_a should be a list of lists
+
+>>> try:
+...     print(lazy_matrix_mul([[1, 2]], 'main'))
+... except Exception as e:
+...     print(e)
+m_b should be a list of lists

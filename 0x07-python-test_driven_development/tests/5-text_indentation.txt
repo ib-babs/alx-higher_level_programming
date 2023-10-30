@@ -1,0 +1,24 @@
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+>>> text = """What is this? Python is awesome. And efficient too.
+... Features: Clean, ELegant, Performace - Fast"""
+>>> text_indentation(text) # doctest: +REPORT_NDIFF
+What is this?
+<BLANKLINE>
+Python is awesome.
+<BLANKLINE>
+And efficient too.
+<BLANKLINE>
+Features:
+<BLANKLINE>
+Clean, ELegant, Performace - Fast
+
+>>> try:
+...     text_indentation(120)
+... except Exception as e:
+...     print(e)
+text must be a string
+
+>>> text_indentation() # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'

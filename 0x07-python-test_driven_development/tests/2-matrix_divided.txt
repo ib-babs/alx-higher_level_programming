@@ -1,0 +1,45 @@
+>>> m = __import__("2-matrix_divided").matrix_divided
+>>> matrix = [[1, 2, 3], [4.20, 5.11, 6.10]]
+>>> print(m(matrix, 2)) # doctest: +REPORT_NDIFF
+[[0.5, 1.0, 1.5], [2.1, 2.56, 3.05]]
+
+>>> try:
+...    matrix = [
+...        [1, 2, 3, 4],
+...        [5, 6, 7, 8],
+...        [9, 10, 11]]
+...    print(m(matrix, 2))
+... except Exception as e:
+...        print(e)
+Each row of the matrix must have the same size
+
+>>> try:
+...    matrix = [
+...        ['1', 2, 3, 4],
+...        ['5', 6, 7, 8],
+...        ]
+...    print(m(matrix, 2))
+... except Exception as e:
+...        print(e)
+matrix must be a matrix (list of lists) of integers/floats
+
+>>> print(m()) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+>>> print(m(matrix)) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> print(m(div=2))
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'matrix'
+
+>>> try:
+...    print(m([10, 20, 30], 2))
+... except Exception as e:
+...    print(e)
+'int' object is not iterable
