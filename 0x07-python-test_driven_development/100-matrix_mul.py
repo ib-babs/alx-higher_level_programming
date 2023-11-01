@@ -53,9 +53,9 @@ def matrix_mul(m_a, m_b):
     if any(len(i) != len(m_b[0]) for i in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
-    # # Check if the matrices cant be multiplied
-    # if len(m_a[0]) != len(m_b) or len(m_a[0]) != len(m_b[0]):
-    #     raise ValueError("m_a and m_b can't be multiplied")
+    # Check if the matrices cant be multiplied
+    if len(m_a[0]) != len(m_b) or len(m_a[0]) != len(m_b[0]):
+        raise ValueError("m_a and m_b can't be multiplied")
 
     # Driver
     mul_list = [[0 for i in range(len(m_b[0]))] for i in range(len(m_a))]
