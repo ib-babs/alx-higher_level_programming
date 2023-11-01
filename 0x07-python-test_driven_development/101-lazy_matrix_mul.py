@@ -13,12 +13,9 @@ def lazy_matrix_mul(m_a, m_b):
     Matrix A and Matrix B"""
 
     # Handle list of list
-    # Matrix A
-    if not isinstance(m_a, list):
-        raise TypeError("m_a should be a list of lists")
-        # Matrix B
-    if not isinstance(m_b, list):
-        raise TypeError("m_b should be a list of lists")
+    # Matrix A and B
+    if not isinstance(m_a, list) or not isinstance(m_b, list):
+        raise TypeError("Scalar operands are not allowed, use '*' instead")
 
     # Handle the lists inside the list
         # Matrix A
@@ -32,31 +29,34 @@ def lazy_matrix_mul(m_a, m_b):
         # Matrix A
     if any(not isinstance(matrix_1[element], (int, float)) for matrix_1 in m_a
            for element in range(len(matrix_1))):
-        raise TypeError("m_a must only contain either integers or floats")
+        raise TypeError("invalid data type for einsum")
         # Matrix B
     if any(not isinstance(matrix_2[element], (int, float)) for matrix_2 in m_b
            for element in range(len(matrix_2))):
-        raise TypeError("m_b must only contain either integers or floats")
+        raise TypeError("invalid data type for einsum")
 
     # Hanle empty list or list of lists
         # Matrix A
     if m_a == [] or m_a == [[]]:
-        raise ValueError("m_a mustn't be empty")
+        raise ValueError(
+            "shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)")
         # Matrix B
     if m_b == [] or m_b == [[]]:
-        raise ValueError("m_b mustn't be empty")
+        raise ValueError(
+            "shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)")
 
     # Handle each length of each row if equal
         # Matrix A
     if any(len(i) != len(m_a[0]) for i in m_a):
-        raise TypeError("each row of m_a must not greater than other")
+        raise TypeError("setting an array element with a sequence.")
         # Matrix B
     if any(len(i) != len(m_b[0]) for i in m_b):
-        raise TypeError("each row of m_b must not greater than other")
+        raise TypeError("setting an array element with a sequence.")
 
     # Check if the matrices cant be multiplied
     if len(m_a[0]) != len(m_b) or len(m_a[0]) != len(m_b[0]):
-        raise ValueError("Multiplication of m_a with m_b is not possible")
+        raise ValueError(
+            "shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)")
 
     # Driver
     mul_list = np.array([[0 for i in range(len(m_b[0]))]

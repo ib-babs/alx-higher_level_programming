@@ -16,7 +16,7 @@
 ...     ))
 ... except Exception as e:
 ...     print(e)
-Multiplication of m_a with m_b is not possible
+shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
 >>> try:
 ...     print(lazy_matrix_mul([[1, 'a']],
@@ -24,7 +24,7 @@ Multiplication of m_a with m_b is not possible
 ...     ))
 ... except Exception as e:
 ...     print(e)
-m_a must only contain either integers or floats
+invalid data type for einsum
 
 >>> try:
 ...     print(lazy_matrix_mul([[1, 2]],
@@ -32,31 +32,31 @@ m_a must only contain either integers or floats
 ...     ))
 ... except Exception as e:
 ...     print(e)
-m_b must only contain either integers or floats
+invalid data type for einsum
 
 >>> try:
 ...     print(lazy_matrix_mul([[]], [[1]]))
 ... except Exception as e:
 ...     print(e)
-m_a mustn't be empty
+shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
 
 >>> try:
 ...     print(lazy_matrix_mul([[2]], [[]]))
 ... except Exception as e:
 ...     print(e)
-m_b mustn't be empty
+shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
 
 >>> try:
 ...     print(lazy_matrix_mul([[2, 2], [1, 2, 3]], [[1, 2], [2, 4]]))
 ... except Exception as e:
 ...     print(e)
-each row of m_a must not greater than other
+setting an array element with a sequence.
 
 >>> try:
 ...     print(lazy_matrix_mul([[1, 2], [2, 4]], [[2, 2], [1, 2, 3]]))
 ... except Exception as e:
 ...     print(e)
-each row of m_b must not greater than other
+setting an array element with a sequence.
 
 >>> try:
 ...     print(lazy_matrix_mul())
@@ -92,10 +92,10 @@ m_b have to be a list
 ...     print(lazy_matrix_mul('main', [1, 2]))
 ... except Exception as e:
 ...     print(e)
-m_a should be a list of lists
+Scalar operands are not allowed, use '*' instead
 
 >>> try:
 ...     print(lazy_matrix_mul([[1, 2]], 'main'))
 ... except Exception as e:
 ...     print(e)
-m_b should be a list of lists
+Scalar operands are not allowed, use '*' instead
