@@ -18,5 +18,6 @@ def text_indentation(text):
         print(text[read], end='')
         if text[read] in ".?:":
             print("\n")
-            read += 1
+            if (text[read + 1] == ' '):
+                read += 1
         read += 1
