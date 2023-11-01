@@ -14,18 +14,18 @@ def matrix_mul(m_a, m_b):
     # Handle list of list
     # Matrix A
     if not isinstance(m_a, list):
-        raise TypeError("m_a must be a list of lists")
+        raise TypeError("m_a must be a list")
         # Matrix B
     if not isinstance(m_b, list):
-        raise TypeError("m_b must be a list of lists")
+        raise TypeError("m_b must be a list")
 
     # Handle the lists inside the list
         # Matrix A
     if any(not isinstance(matrix_1, list) for matrix_1 in m_a):
-        raise TypeError("m_a must be a list")
+        raise TypeError("m_a must be a list of lists")
         # Matrix B
     if any(not isinstance(matrix_2, list) for matrix_2 in m_b):
-        raise TypeError("m_b must be a list")
+        raise TypeError("m_b must be a list of lists")
 
     # Check the instance of element in the each list
         # Matrix A
@@ -53,9 +53,9 @@ def matrix_mul(m_a, m_b):
     if any(len(i) != len(m_b[0]) for i in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
-    # Check if the matrices cant be multiplied
-    if len(m_a[0]) != len(m_b) or len(m_a[0]) != len(m_b[0]):
-        raise ValueError("m_a and m_b can't be multiplied")
+    # # Check if the matrices cant be multiplied
+    # if len(m_a[0]) != len(m_b) or len(m_a[0]) != len(m_b[0]):
+    #     raise ValueError("m_a and m_b can't be multiplied")
 
     # Driver
     mul_list = [[0 for i in range(len(m_b[0]))] for i in range(len(m_a))]
