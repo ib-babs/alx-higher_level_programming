@@ -4,9 +4,6 @@ Class Module
 """
 
 
-from typing import Any
-
-
 class MyInt(int):
     """int class subclass"""
 
