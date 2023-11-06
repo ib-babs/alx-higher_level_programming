@@ -5,7 +5,7 @@ if possible, else raise TypeError"""
 
 def add_attribute(obj, name, value):
     """Define add attribute function"""
-    if hasattr(obj, "__dict__") == False:
+    if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
-    obj.name = name
-    obj.value = value
+    if (not hasattr(obj, name)):
+        obj.__setattr__(name, value)
