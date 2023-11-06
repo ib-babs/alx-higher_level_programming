@@ -6,4 +6,4 @@ attributes and methods of an object
 
 def lookup(obj):
     """Lookup function"""
-    return list(obj.__dict__)
+    return [i for i in dir(obj)]
