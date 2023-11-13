@@ -11,7 +11,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """Initialization of Rectangle subclass"""
         super().__init__(id=id, x=x, y=y, width=size, height=size)
-        self.__size = size
 
     def __str__(self):
         """String representation of the subclass"""
@@ -21,7 +20,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """size getter method"""
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
