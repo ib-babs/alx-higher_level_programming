@@ -46,12 +46,11 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Return an instance with all attributes already set"""
-        dummy_instance = cls(1, 9, 3)
         if cls.__name__ == "Square":
             dummy_instance = (1)
 
         if cls.__name__ == "Rectangle":
-            dummy_instance = cls(1,1)
+            dummy_instance = cls(1, 1)
         dummy_instance.update(**dictionary)
         return dummy_instance
 
@@ -62,6 +61,6 @@ class Base:
             if not f:
                 return []
             else:
-                #print(cls.from_json_string([j for j in json.load(f)]))
+                # print(cls.from_json_string([j for j in json.load(f)]))
                 for j in json.load(f):
                     print(cls.from_json_string(j))
