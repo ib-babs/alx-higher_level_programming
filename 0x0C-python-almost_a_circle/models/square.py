@@ -31,24 +31,15 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Update the instance attributes"""
-        try:
-            if args and args != ():
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-                self.y = args[3]
-            else:
-                for key, val in kwargs.items():
-                    if key == "y":
-                        self.y = val
-                    if key == "x":
-                        self.x = val
-                    if key == "id":
-                        self.id = val
-                    if key == "size":
-                        self.size = val
-        except:
-            pass
+        if args and args != ():
+            i = 0
+            listme = ["id", "size", "x", "y"]
+            for arg in args:
+                setattr(self, listme[i], arg)
+                i += 1
+        else:
+            for key, val in kwargs.items():
+                setattr(self, key, val)
 
     def to_dictionary(self):
         """Return dictionary representation of Square"""

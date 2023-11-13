@@ -65,13 +65,13 @@ class Base:
                                   x=x, y=y, id=id)
             return dummy_instance
 
-    # @classmethod
-    # def load_from_file(cls):
-    #     """Load JSON string from file"""
-    #     with open(cls.__name__+".json") as f:
-    #         if not f:
-    #             return []
-    #         else:
-    #             #print(cls.from_json_string([j for j in json.load(f)]))
-    #             for j in json.load(f):
-    #                 print(cls.from_json_string(j))
+    @classmethod
+    def load_from_file(cls):
+        """Load JSON string from file"""
+        with open(cls.__name__+".json") as f:
+            if not f:
+                return []
+            else:
+                #print(cls.from_json_string([j for j in json.load(f)]))
+                for j in json.load(f):
+                    print(cls.from_json_string(j))
