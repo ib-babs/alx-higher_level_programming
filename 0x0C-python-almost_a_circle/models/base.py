@@ -48,22 +48,12 @@ class Base:
         """Return an instance with all attributes already set"""
         dummy_instance = cls(1, 9, 3)
         if cls.__name__ == "Square":
-            size = dictionary["size"]
-            x = dictionary["x"]
-            y = dictionary["y"]
-            id = dictionary["id"]
-            dummy_instance.update(size=size, x=x, y=y, id=id)
-            return dummy_instance
+            dummy_instance = (1)
 
         if cls.__name__ == "Rectangle":
-            width = dictionary["width"]
-            height = dictionary["height"]
-            x = dictionary["x"]
-            y = dictionary["y"]
-            id = dictionary["id"]
-            dummy_instance.update(width=width, height=height,
-                                  x=x, y=y, id=id)
-            return dummy_instance
+            dummy_instance = cls(1,1)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
 
     @classmethod
     def load_from_file(cls):
