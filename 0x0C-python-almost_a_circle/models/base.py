@@ -48,7 +48,6 @@ class Base:
         """Return an instance with all attributes already set"""
         if cls.__name__ == "Square":
             dummy_instance = (1)
-
         if cls.__name__ == "Rectangle":
             dummy_instance = cls(1, 1)
         dummy_instance.update(**dictionary)
@@ -57,10 +56,9 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Load JSON string from file"""
-        with open(cls.__name__+".json") as f:
-            if not f:
+        try:
+            with open(cls.__name__+".json", "r") as f:
+                d = cls.from_json_string(f.read())
+                return [cls.create(**x) for x in d]
+        except FileNotFoundError:
                 return []
-            else:
-                # print(cls.from_json_string([j for j in json.load(f)]))
-                for j in json.load(f):
-                    print(cls.from_json_string(j))
