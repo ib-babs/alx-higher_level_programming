@@ -61,4 +61,27 @@ class Base:
                 d = cls.from_json_string(f.read())
                 return [cls.create(**x) for x in d]
         except FileNotFoundError:
-                return []
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        with open(cls.__name__+".csv", 'w') as f:
+            if list_objs == None or list_objs == []:
+                json.dump([], f)
+            else:
+
+                jstr = cls.to_json_string(
+                    [l.to_dictionary_csv() for l in list_objs])
+                json.dump(json.loads(jstr), f)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        try:
+            with open(cls.__name__+".csv", "r") as f:
+                d = cls.from_json_string(f.read())
+                if cls.__name__ == "Square":
+                    return [cls(**dt) for dt in d]
+                if cls.__name__ == "Rectangle":
+                    return [cls(**dt) for dt in d]
+        except FileNotFoundError:
+            return []
