@@ -28,17 +28,17 @@ class Base:
     def save_to_file(cls, list_objs=None):
         """Save JSON string to file"""
         with open(cls.__name__+".json", 'w') as f:
-            if list_objs == None or list_objs == []:
+            if list_objs is None or list_objs == []:
                 json.dump([], f)
             else:
                 jstr = cls.to_json_string(
-                    [l.to_dictionary() for l in list_objs])
+                    [list_obj.to_dictionary() for list_obj in list_objs])
                 json.dump(json.loads(jstr), f)
 
     @staticmethod
     def from_json_string(json_string):
         """Transform JSON to String"""
-        if json_string == None or json_string == []:
+        if json_string is None or json_string == []:
             return []
         else:
             return json.loads(json_string)
@@ -66,12 +66,12 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         with open(cls.__name__+".csv", 'w') as f:
-            if list_objs == None or list_objs == []:
+            if list_objs is None or list_objs == []:
                 json.dump([], f)
             else:
 
                 jstr = cls.to_json_string(
-                    [l.to_dictionary_csv() for l in list_objs])
+                    [list_obj.to_dictionary_csv() for list_obj in list_objs])
                 json.dump(json.loads(jstr), f)
 
     @classmethod
