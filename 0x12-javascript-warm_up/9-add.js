@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const processArgv = require('node:process').argv;
+const processArgv = process.argv;
 function add (a, b) {
   console.log(parseInt(a) + parseInt(b));
 }
