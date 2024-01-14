@@ -6,6 +6,7 @@ contained in the database hbtn_0e_101_usa"""
 
 
 def relationship_state_city(engine):
+    """List all state object corresponding with city object"""
     Base.metadata.create_all(engine)
     states = State
     Session = sessionmaker(bind=engine)
