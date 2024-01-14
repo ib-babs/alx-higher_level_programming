@@ -7,7 +7,7 @@ from sys import argv
 from sqlalchemy.engine.url import URL
 
 Base = declarative_base()
-try:
+if (len(argv) == 4):
     url = {'drivername': 'mysql+mysqldb',
            'username': argv[1],
            'password': argv[2],
@@ -24,6 +24,3 @@ try:
         name = Column(String(128), nullable=False)
 
     Base.metadata.create_all(engine)
-
-except Exception as e:
-    pass
