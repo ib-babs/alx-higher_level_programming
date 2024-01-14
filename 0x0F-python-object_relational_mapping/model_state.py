@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ORM - Object Relational Mapping Application
-Modelling State class"""
+Modelling State class
+State is the class consructing for the
+rest of the program"""
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, create_engine
 from sys import argv
-from sqlalchemy.engine.url import URL
 
 Base = declarative_base()
 
