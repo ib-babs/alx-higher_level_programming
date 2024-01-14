@@ -7,14 +7,8 @@ contained in the database hbtn_0e_101_usa"""
 
 def relationship_state_city():
     try:
-        url = {'drivername': 'mysql+mysqldb',
-               'username': argv[1],
-               'password': argv[2],
-               'host': '127.0.0.1',
-               'port': 3306,
-               'database': argv[3]
-               }
-        engine = create_engine(URL.create(**url))
+        engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+            argv[1], argv[2], argv[3]), pool_pre_ping=True)
         Base.metadata.create_all(engine)
         states = State
         Session = sessionmaker(bind=engine)

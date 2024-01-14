@@ -7,14 +7,8 @@ from sys import argv
 from sqlalchemy.engine.url import URL
 
 Base = declarative_base()
-url = {'drivername': 'mysql+mysqldb',
-       'username': argv[1],
-       'password': argv[2],
-       'host': '127.0.0.1',
-       'port': 3306,
-       'database': argv[3]
-       }
-engine = create_engine(URL(**url))
+engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+    argv[1], argv[2], argv[3]), pool_pre_ping=True)
 
 
 class State(Base):
