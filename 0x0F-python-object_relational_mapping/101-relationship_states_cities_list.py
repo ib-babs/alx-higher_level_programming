@@ -15,7 +15,7 @@ def relationship_state_city(engine):
     for row in rows:
         print("{}: {}".format(row.id, row.name))
         for city in row.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("   {}: {}".format(city.id, city.name))
 
     session.close()
 
