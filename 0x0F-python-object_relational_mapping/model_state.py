@@ -14,7 +14,7 @@ url = {'drivername': 'mysql+mysqldb',
        'port': 3306,
        'database': argv[3]
        }
-engine = create_engine(URL.create(**url))
+engine = create_engine(URL(**url))
 
 
 class State(Base):
