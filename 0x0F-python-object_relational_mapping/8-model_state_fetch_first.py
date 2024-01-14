@@ -9,7 +9,7 @@ def fetch_first_from_state(engine):
     Session = sessionmaker(bind=engine)
     session = Session()
     res = session.query(State.id, State.name).first()
-    if len(res) > 1:
+    if res:
         print('{}: {}'.format(res[0], res[1]))
     else:
         print("Nothing")
