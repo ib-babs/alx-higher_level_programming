@@ -4,9 +4,10 @@ Modelling State class
 State is the class consructing for the
 rest of the program"""
 
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, create_engine
+
 from sys import argv
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
@@ -18,5 +19,6 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-    argv[1], argv[2], argv[3]), pool_pre_ping=True)
+if __name__ == '__main__':
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
