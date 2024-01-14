@@ -5,28 +5,19 @@ lists all State objects, and corresponding City objects,
 contained in the database hbtn_0e_101_usa"""
 
 
-def relationship_state_city():
-    try:
-        url = {'drivername': 'mysql+mysqldb',
-               'username': argv[1],
-               'password': argv[2],
-               'host': '127.0.0.1',
-               'port': 3306,
-               'database': argv[3]
-               }
-        engine = create_engine(URL.create(**url))
-        Base.metadata.create_all(engine)
-        Session = sessionmaker(bind=engine)
-        session = Session()
-        states = State
-        rows = session.query(states).join(
-            City).order_by(City.id).all()
-        for row in rows:
-            for city in row.cities:
-                print("{}: {} -> {}".format(city.id, city.name, row.name))
-        session.close()
-    except Exception as e:
-        print(e)
+def relationship_state_city(engine):
+    """List all state object corresponding with city object"""
+    Base.metadata.create_all(engine)
+    states = State
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    rows = session.query(states).join(
+        City).order_by(City.id).all()
+
+    for row in rows:
+        for city in row.cities:
+            print("{}: {} -> {}".format(city.id, city.name, row.name))
+    session.close()
 
 
 if __name__ == "__main__":
@@ -34,6 +25,7 @@ if __name__ == "__main__":
     from relationship_state import State, Base
     from sqlalchemy.orm import (sessionmaker)
     from sqlalchemy import create_engine
-    from sqlalchemy.engine.url import URL
     from sys import argv
-    relationship_state_city()
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    relationship_state_city(engine=engine)
