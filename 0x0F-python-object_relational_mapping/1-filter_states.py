@@ -3,12 +3,12 @@
 
 
 def filter_states():
-    """Filtering state"""
+    """Filtering columns from states table"""
     if (len(argv) == 4):
         db = MySQLdb.connect(host='localhost', port=3306,
                              user=argv[1], password=argv[2], db=argv[3])
         cur = db.cursor()
-        query = """SELECT * FROM states
+        query = """SELECT states.id, states.name FROM states
             WHERE states.name
             LIKE 'N%'
             ORDER BY states.id ASC"""
