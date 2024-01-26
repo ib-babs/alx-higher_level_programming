@@ -12,7 +12,7 @@ if __name__ == '__main__':
         res = response.read()
         # Format and print the response details
         print("Body response:")
-        print("    - type: {}".format(type(res)))
-        print("    - content: {}".format(res))
-        print("    - utf content: {}".format(
+        print("\t- type: {}".format(type(res)))
+        print("\t- content: {}".format(res))
+        print("\t- utf content: {}".format(
             res.decode('utf-8')))
