@@ -12,7 +12,6 @@ if __name__ == "__main__":
     req = urllib.request.Request(
         url=url, method='POST',
         data={"email": email},
-        headers={"Content-Type": "text/plain; charset=utf-8"}
     )
     with urllib.request.urlopen(req) as response:
-        print("Your email is: {}".format(email))
+        print(response.read().decode('utf-8'))
