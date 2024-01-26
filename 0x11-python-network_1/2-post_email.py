@@ -15,4 +15,4 @@ if __name__ == "__main__":
         headers={"Content-Type: text/plain; charset=utf-8"}
     )
     with urllib.request.urlopen(req) as response:
-        print(response.read())
+        print("Your email is: {}".format(email))
