@@ -11,7 +11,6 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
     req = urllib.request.Request(url=url)
-
     try:
         with urllib.request.urlopen(req) as response:
             print(response.read().decode('utf-8'))
