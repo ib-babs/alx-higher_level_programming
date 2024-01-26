@@ -14,5 +14,5 @@ if __name__ == '__main__':
         print("Body response:")
         print("\t- type: {}".format(type(res)))
         print("\t- content: {}".format(res))
-        print("\t- utf content: {}".format(
+        print("\t- utf8 content: {}".format(
             res.decode('utf-8')))
