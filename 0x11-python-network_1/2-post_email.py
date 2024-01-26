@@ -11,8 +11,8 @@ if __name__ == "__main__":
     email = sys.argv[2]
     req = urllib.request.Request(
         url=url, method='POST',
-        data={'email': email},
-        headers={"Content-Type: text/plain; charset=utf-8"}
+        data={"email": email},
+        headers={"Content-Type": "text/plain; charset=utf-8"}
     )
     with urllib.request.urlopen(req) as response:
         print("Your email is: {}".format(email))
