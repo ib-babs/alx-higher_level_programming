@@ -15,15 +15,16 @@ if __name__ == "__main__":
     post_url = "http://0.0.0.0:5000/search_user"
 
     req = requests.post(post_url, data={"q": letter})
+    try:
+        # Convert output to json
+        json_req = req.json()
 
-    # Convert output to json
-    json_req = req.json()
-
-    # Check if json_req variable exist and non-empty
-    if json_req and json_req != {}:
-        print("[{}] {}".format(json_req.get('id'),
-              json_req.get('name')))
-    elif not json_req:
-        print("Not a valid JSON")
-    elif json_req == {}:
-        print('No result')
+        # Check if json_req variable exist and non-empty
+        if json_req != {}:
+            print("[{}] {}".format(json_req.get('id'),
+                                   json_req.get('name')))
+            print("Not a valid JSON")
+        elif json_req == {}:
+            print('No result')
+    except ValueError:
+        print('Not a valid JSON')
