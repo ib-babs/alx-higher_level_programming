@@ -8,15 +8,15 @@ with the letter as a parameter.
 if __name__ == "__main__":
     import requests
     import sys
-    q = None
+    letter = None
     if len(sys.argv) > 1:
-        q = sys.argv[1]
+        letter = sys.argv[1]
     else:
-        q = ""
+        letter = ""
     # URL
     post_url = "http://0.0.0.0:5000/search_user"
 
-    req = requests.post(post_url, params=q)
+    req = requests.post(post_url, data={"p": sys.argv[1]})
 
     # Convert output to json
     json_req = req.json()
