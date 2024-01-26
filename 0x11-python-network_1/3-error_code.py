@@ -9,8 +9,7 @@ if __name__ == "__main__":
     import sys
 
     url = sys.argv[1]
-    email = sys.argv[2]
-    req = urllib.request.Request(url=url)
+    req = urllib.request.Request(url=url, method='GET')
     try:
         with urllib.request.urlopen(req) as response:
             print(response.read().decode('utf-8'))
